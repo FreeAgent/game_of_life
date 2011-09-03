@@ -6,16 +6,31 @@
    irb -r ./gol.rb
 
    >>  gen=tick!(INIT)
-
+   >>  gen=tick!(gen)
    & run this command repeatedly to see the succeeding generations.
 =end
 
 =begin rdoc
-   Essential logic of game-of-life; where x is no. of live neighbours.
+   Essential logic of game-of-life; x is the no. of live neighbours a cell has.
    (x < 2) || (x > 3): death
    x=2: life (only if previously alive) 
    x=3: life
 =end
+
+  
+=begin rdoc
+  relative co-ordinate values, to create a 'ring'/neighbourhood around a cell.
+=end
+HOOD = { 
+  [-1, -1] => 1, 
+  [-1,  0] => 1,  
+  [-1, +1] => 1,  
+  [ 0, +1] => 1, 
+  [ 0, -1] => 1, 
+  [+1, -1] => 1, 
+  [+1,  0] => 1, 
+  [+1, +1] => 1 
+} 
 
  
 class Array
@@ -50,7 +65,7 @@ class Hash
   end
 
 =begin rdoc
-    create rings of neighbour-counts; then merge them into one hash
+    create rings of neighbour-counts; then merge the rings into one hash
 =end
   def genRings!()
     rings = []
@@ -90,18 +105,3 @@ end
   the values is a count of neighbours (calculated each tick, then reset to 0).
 =end
 INIT = { [1,0] => 0, [1,1] => 0, [0,1] => 0, [5,0] => 0, [6,0] => 0, [7,0] => 0, [6,2] => 0}
-
-  
-=begin rdoc
-  relative co-ordinate values, to create a 'ring'/neighbourhood around a cell.
-=end
-HOOD = { 
-  [-1, -1] => 1, 
-  [-1,  0] => 1,  
-  [-1, +1] => 1,  
-  [ 0, +1] => 1, 
-  [ 0, -1] => 1, 
-  [+1, -1] => 1, 
-  [+1,  0] => 1, 
-  [+1, +1] => 1 
-} 

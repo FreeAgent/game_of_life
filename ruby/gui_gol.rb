@@ -1,7 +1,11 @@
 #!/usr/bin/env ruby
-# gui_gol.rb    Game of Life with wxRuby for GUI display
+# gui_gol.rb    Game of Life, with wxRuby for GUI display
 
-require 'gol.rb'  # see logic & comments in this file for more information.
+require 'gol.rb'  # see the logic & comments in this file for more information.
+
+=begin
+   To run this code, type: ruby ./gui_gol.rb 
+=end
 
 begin
   require 'rubygems' 
@@ -32,7 +36,7 @@ class GolWindow < Wx::Window
     rect = self.get_client_size
     paint do |dc|
       gdc = Wx::GraphicsContext.create(dc)
-      pen = gdc.create_pen(Wx::Pen.new(Wx::Colour.new(255,0,255,255)))
+      pen = gdc.create_pen(Wx::Pen.new(Wx::Colour.new(255,0,0,255)))
       gdc.set_pen(pen)
 
       $nextgen.each{|k,v| 
