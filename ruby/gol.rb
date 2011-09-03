@@ -100,8 +100,8 @@ end
 
 
 =begin rdoc
-  initial state: 'die hard' pattern (runs to 130 iterations before dying off)
-  the key represents co-ordinates in a Cartesian plane.
-  the values is a count of neighbours (calculated each tick, then reset to 0).
+  initial state: 'die hard' pattern (runs to 130 iterations before dying off);
+  the key represents co-ordinates in a Cartesian plane;
+  the value is a count of neighbours (calculated each tick, then reset to 0).
 =end
 INIT = { [1,0] => 0, [1,1] => 0, [0,1] => 0, [5,0] => 0, [6,0] => 0, [7,0] => 0, [6,2] => 0}

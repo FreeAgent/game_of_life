@@ -22,7 +22,7 @@ class GolWindow < Wx::Window
     @timer = Wx::Timer.new(self,1000)
     # run every 750 milliseconds
     @timer.start(750)
-    # Setup the event Handler to do the drawing on this window.
+    # event handlers 
     evt_paint :on_paint
     evt_timer 1000, :animate
   end
@@ -32,7 +32,6 @@ class GolWindow < Wx::Window
   end
   
   def on_paint
-    # We do our drawing now
     rect = self.get_client_size
     paint do |dc|
       gdc = Wx::GraphicsContext.create(dc)
