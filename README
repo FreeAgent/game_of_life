@@ -1,3 +1,6 @@
 Conway's Game of Life
 
 See comments in the file-headers, for instructions on running the code.
+
+To run the graphical Ruby game-of-life, first install wxRuby:
+http://wxruby.rubyforge.org/wiki/wiki.pl?Installation
